@@ -75,8 +75,11 @@ gogoc_status tspTestIPv6Support()
 //
 void tspSetEnv(char *Variable, char *Value, int Flag)
 {
-  setenv( Variable, Value, Flag );
-  Display( LOG_LEVEL_3, ELInfo, "tspSetEnv", "%s=%s", Variable, Value );
+  char *v = Value;
+  if ( ! v )
+    v = "";
+  setenv( Variable, v, Flag );
+  Display( LOG_LEVEL_3, ELInfo, "tspSetEnv", "%s=%s", Variable, v );
 }
 
 // --------------------------------------------------------------------------
